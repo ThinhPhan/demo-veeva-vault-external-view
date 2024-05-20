@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- 1. The <iframe> (and Vault viewer) will replace this <div> tag. -->
+    <div id="viewer"></div>
+
+    <script>
+      // 2. This code loads the IFrame Viewer API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = 'https://js.veevavault.com/vault.js';
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and Vault viewer) after the API code downloads.
+      var viewer;
+      function onVeevaVaultIframeAPIReady() {
+        viewer = new VV.Viewer('viewer', {
+          height: '600',
+          width: '600',
+          error: 'We\'re sorry. The document you are trying to view is not available.'
+        });
+      }
+    </script>
+  </body>
+</html>
